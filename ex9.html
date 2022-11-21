@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script src="jquery.js"></script> 
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>-->
+
+<style type="text/css">
+	.enfant{
+		border:1px solid green;		
+	}
+	.descendant{
+		border:1px dashed red;
+	}
+	.important{
+		color: red;
+		background-color: black;
+	}
+
+</style>
+
+</head>
+<body>
+<a href="#">Clic Me</a>
+<p>Le général sorti un badge et se dirigea vers l’une des portes entourées de peinture jaune.</p>
+<div id="box">
+	KJjDQSJDGJHQSDGJQSHD SHD SJHDG JHQSD GJHQSD GHJSQGDJHQSDGJHQSDG HSGDJHQSDJHQSD FQSGHFDGHQSDFGHDF QSGDF GHQSD FSGHD FQSGHD FQSGH
+</div>
+
+<div class="important">
+	Important de suivre le cours !!!!
+</div>
+
+<ul id="liste">
+	<li>Tunis</li>
+	<li>Manouba</li>
+	<li>Ben arous</li>
+	<li>Ariana
+		<ol>
+			<li>Sidi thabet</li>
+			<li>Tadhamen</li>
+			<li>Mnihla</li>
+		</ol>
+	</li>
+</ul>
+
+
+<a href="#" id="visible" title="Affiché">Afficher/Masquer</a> <br>
+<img src="images/tunisair.jpg" width="100px"><br>
+
+<strong>Nom: </strong><input type="text" name="nom">
+
+
+
+
+
+<script type="text/javascript">
+	
+	$(document).ready(function() { 
+		//alert('Coucou, je suis Jquery'); 
+
+		$('p,a, #box, .important').click(function(){
+
+			//alert('Je suis le Para');
+			//$(this).hide(4000);
+			$(this).css('color','red');
+			$(this).css('border','2px solid green');
+		});
+
+		//animation de mnihla
+		$("#liste >li:last li").hover(function(){
+			$(this).addClass("important");
+		},function(){
+			$(this).removeClass("important");
+		}); 
+
+		//$("img").hide();
+		$('#visible').click(function(){
+			$("img").toggle("slow");
+
+		});
+
+
+		$('input').blur(function(){
+			//alert('Coucou');
+			$(this).css('background-color','red');
+		});
+
+		$('body *').dblclick(function(){
+			//$(this).hide(1000);
+			$(this).addClass('important');
+		});
+
+
+		$("body").mousemove(function(e) {
+			//console.log(e.offsetX, e.offsetY);
+		});
+
+
+		$('p').click(function() {
+			$('img').animate({
+				opacity: 0.25,
+				left: '+=50'
+			}, 5000,
+			function() {
+				alert('coucou');
+			});
+		});
+
+
+$('div').load('dynamique.html');
+
+	}); //Fin de document.ready
+
+
+</script>
+
+
+
+</body>
+</html>
